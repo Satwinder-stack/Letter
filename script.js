@@ -56,19 +56,22 @@ function checkPassword() {
     }
 }
 
-// Add keypress event listener for Enter key
-document.getElementById('password-input').addEventListener('keypress', function(event) {
-    if (event.key === 'Enter') {
-        checkPassword();
-    }
-});
+// Wrap initialization in DOMContentLoaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Add keypress event listener for Enter key
+    document.getElementById('password-input').addEventListener('keypress', function(event) {
+        if (event.key === 'Enter') {
+            checkPassword();
+        }
+    });
 
-// Add shake animation
-const style = document.createElement('style');
-style.textContent = `
-@keyframes shake {
-    0%, 100% { transform: translateX(0); }
-    25% { transform: translateX(-10px); }
-    75% { transform: translateX(10px); }
-}`;
-document.head.appendChild(style); 
+    // Add shake animation
+    const style = document.createElement('style');
+    style.textContent = `
+    @keyframes shake {
+        0%, 100% { transform: translateX(0); }
+        25% { transform: translateX(-10px); }
+        75% { transform: translateX(10px); }
+    }`;
+    document.head.appendChild(style);
+}); 
